@@ -122,7 +122,8 @@ ISBN            Title           Author              Publisher      YearPublished
 
 ```sql
 INSERT INTO Books 
-SELECT * FROM Out_of_print_books```
+SELECT * FROM Out_of_print_books
+```
 
 **Output:**
 
@@ -318,7 +319,8 @@ cid    name             type             notnu  dflt_value  pk
 ALTER TABLE Student_details 
 ADD COLUMN MobileNumber NUMBER;
 ALTER TABLE Student_details
-ADD COLUMN Address VARCHAR(100);```
+ADD COLUMN Address VARCHAR(100);
+```
 
 **Output:**
 
