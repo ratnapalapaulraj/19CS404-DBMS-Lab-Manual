@@ -321,6 +321,7 @@ WHERE p.admission_date BETWEEN '2024-01-01' AND '2024-01-31';
 ```
 
 **Output:**
+<img width="1315" height="341" alt="image" src="https://github.com/user-attachments/assets/916e9412-2f10-4111-ba2a-438e8f84fe0e" />
 
 
 
