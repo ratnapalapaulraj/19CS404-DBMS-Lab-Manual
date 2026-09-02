@@ -105,123 +105,245 @@ CREATE TABLE Table_Name (
 
 **Question 1**
 --
--- Paste Question 1 here
+Insert all books from Out_of_print_books into Books
+
+Table attributes are ISBN, Title, Author, Publisher, YearPublished
+
+For example:
+Test	Result
+select * from Books;
+
+ISBN            Title           Author              Publisher      YearPublished
+--------------  --------------  ------------------  -------------  -------------
+978-1234567890  The Lost World  Arthur Conan Doyle  Vintage Books  1912
+978-0987654321  Gone with the   Margaret Mitchell   Macmillan      1936
+978-1122334455  Moby Dick       Herman Melville     Harper & Brot  1851
+
 
 ```sql
--- Paste your SQL code below for Question 1
-```
+INSERT INTO Books 
+SELECT * FROM Out_of_print_books```
 
 **Output:**
 
-![Output1](output.png)
+<img width="1282" height="341" alt="image" src="https://github.com/user-attachments/assets/8f13dd93-ec49-4f23-a255-41229f27a7e4" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should set NULL on updates and deletes.
+item_desc and rate should not accept NULL.
+
 
 ```sql
--- Paste your SQL code below for Question 2
+CREATE TABLE item(
+item_id TEXT PRIMARY KEY,
+item_desc TEXT NOT NULL,
+rate INTEGER NOT NULL,
+icom_id TEXT CHECK(LENGTH(icom_id)=4),
+FOREIGN KEY (icom_id) REFERENCES company(com_id)
+ON UPDATE SET NULL
+ON DELETE SET NULL
+);
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1255" height="402" alt="image" src="https://github.com/user-attachments/assets/654f35fd-55ea-45a9-9516-198cebd37680" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+Write a SQL Query for inserting the below values in the table Customers
+
+ID               NAME             AGE  ADDRESS     SALARY      
+---------------  ---------------  ---  ----------  ----------  
+1                Ramesh           32   Ahmedabad   2000
+2                Khilan           25   Delhi       1500
+3                Kaushik          23   Kota        2000
+
 
 ```sql
--- Paste your SQL code below for Question 3
+INSERT INTO Customers VALUES
+(1,'Ramesh',32,'Ahmedabad',2000),
+(2,'Khilan',25,'Delhi',1500),
+(3,'Kaushik',23,'Kota',2000);
 ```
 
 **Output:**
-
-![Output3](output.png)
+<img width="1256" height="331" alt="image" src="https://github.com/user-attachments/assets/e6fd6ab7-1706-4be2-9463-b8bcf6f54b35" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to Add a new column Mobilenumber as number in the Student_details table.
+
+Sample table: Student_details
+
+ cid              name             type             notnu  dflt_value  pk
+---------------  ---------------  ---------------  -----  ----------  ----------
+0                RollNo           int              0                  1
+1                Name             VARCHAR(100)     1                  0
+2                Gender           TEXT             1                  0
+3                Subject          VARCHAR(30)      0                  0
+4                MARKS            INT (3)          0                  0
 
 ```sql
--- Paste your SQL code below for Question 4
+ALTER TABLE Student_details
+ADD COLUMN Mobilenumber number;
 ```
 
 **Output:**
+<img width="1247" height="410" alt="image" src="https://github.com/user-attachments/assets/72db7fac-666b-4d4d-95f5-de76e6efd4e6" />
 
-![Output4](output.png)
 
 **Question 5**
 ---
--- Paste Question 5 here
+Create a table named Products with the following constraints:
+ProductID as INTEGER should be the primary key.
+ProductName as TEXT should be unique and not NULL.
+Price as REAL should be greater than 0.
+StockQuantity as INTEGER should be non-negative.
 
 ```sql
--- Paste your SQL code below for Question 5
+CREATE TABLE Products
+(
+ProductID INTEGER PRIMARY KEY,
+ProductName TEXT UNIQUE NOT NULL,
+Price REAL CHECK(Price>0),
+StockQuantity INTEGER CHECK(StockQuantity>0)
+);
 ```
 
 **Output:**
+<img width="1252" height="335" alt="image" src="https://github.com/user-attachments/assets/f29613be-f5b3-48a6-a997-ed7247e8d000" />
 
-![Output5](output.png)
 
 **Question 6**
 ---
--- Paste Question 6 here
+Create a table named Customers with the following columns:
+
+CustomerID as INTEGER
+Name as TEXT
+Email as TEXT
+JoinDate as DATETIME
 
 ```sql
--- Paste your SQL code below for Question 6
+CREATE TABLE Customers(
+CustomerID INTEGER,
+Name TEXT,
+Email TEXT,
+JoinDate DATETIME
+);
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1262" height="437" alt="image" src="https://github.com/user-attachments/assets/130c6d1c-4cb6-4feb-90b4-77eaadc6f0c4" />
 
 **Question 7**
 ---
--- Paste Question 7 here
+Create a table named Bonuses with the following constraints:
+BonusID as INTEGER should be the primary key.
+EmployeeID as INTEGER should be a foreign key referencing Employees(EmployeeID).
+BonusAmount as REAL should be greater than 0.
+BonusDate as DATE.
+Reason as TEXT should not be NULL.
 
 ```sql
--- Paste your SQL code below for Question 7
+CREATE TABLE Bonuses(
+BonusID INTEGER PRIMARY KEY,
+EmployeeID INTEGER,
+BonusAmount REAL CHECK(BonusAmount>0),
+BonusDate DATE,
+Reason TEXT NOT NULL,
+FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
+);
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="1251" height="313" alt="image" src="https://github.com/user-attachments/assets/77a9d7f9-2b69-4024-b379-171b5aec97e9" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Create a table named Employees with the following constraints:
+
+EmployeeID should be the primary key.
+FirstName and LastName should be NOT NULL.
+Email should be unique.
+Salary should be greater than 0.
+DepartmentID should be a foreign key referencing the Departments table.
 
 ```sql
--- Paste your SQL code below for Question 8
+CREATE TABLE Employees(
+EmployeeID PRIMARY KEY,
+FirstName NOT NULL,
+LastName NOT NULL,
+Email UNIQUE,
+Salary CHECK(Salary>0),
+DepartmentID,
+FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1258" height="463" alt="image" src="https://github.com/user-attachments/assets/509525d6-a404-44ab-94fc-fe8acfc30383" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query to add a new column MobileNumber of type NUMBER and a new column Address of type VARCHAR(100) to the Student_details table.
+
+For example:
+
+Test	Result
+pragma table_info('Student_details');
+cid    name             type             notnu  dflt_value  pk
+-----  ---------------  ---------------  -----  ----------  ----------
+0      RollNo           int              0                  1
+1      Name             VARCHAR(100)     1                  0
+2      Gender           TEXT             1                  0
+3      Subject          VARCHAR(30)      0                  0
+4      MARKS            INT (3)          0                  0
+5      MobileNumber     NUMBER           0                  0
+6      Address          VARCHAR(100)     0                  0
 
 ```sql
--- Paste your SQL code below for Question 9
-```
+ALTER TABLE Student_details 
+ADD COLUMN MobileNumber NUMBER;
+ALTER TABLE Student_details
+ADD COLUMN Address VARCHAR(100);```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1280" height="421" alt="image" src="https://github.com/user-attachments/assets/3786926b-e257-4ea9-b237-e0d0b8dd61f4" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Insert a customer with CustomerID 301, Name Michael Jordan, Address 123 Maple St, City Chicago, and ZipCode 60616 into the Customers table.
+
+For example:
+
+Test	Result
+SELECT * FROM Customers WHERE CustomerID = 301;
+CustomerID  Name            Address       City        ZipCode
+----------  --------------  ------------  ----------  ----------
+301         Michael Jordan  123 Maple St  Chicago     60616
 
 ```sql
--- Paste your SQL code below for Question 10
+INSERT INTO Customers VALUES
+(301,'Michael Jordan','123 Maple St','Chicago',60616);
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1266" height="290" alt="image" src="https://github.com/user-attachments/assets/4e115dea-0a24-4963-857d-1c5edd6ddbe6" />
 
 
 ## RESULT
