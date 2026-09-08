@@ -7,163 +7,173 @@ To study and implement DML (Data Manipulation Language) commands.
 
 ### 1. INSERT INTO
 Used to add records into a relation.
-These are three type of INSERT INTO queries which are as
-A)Inserting a single record
-**Syntax (Single Row):**
-```sql
-INSERT INTO table_name (field_1, field_2, ...) VALUES (value_1, value_2, ...);
-```
-**Syntax (Multiple Rows):**
-```sql
-INSERT INTO table_name (field_1, field_2, ...) VALUES
-(value_1, value_2, ...),
-(value_3, value_4, ...);
-```
-**Syntax (Insert from another table):**
-```sql
-INSERT INTO table_name SELECT * FROM other_table WHERE condition;
-```
+
 ### 2. UPDATE
 Used to modify records in a relation.
-Syntax:
-```sql
-UPDATE table_name SET column1 = value1, column2 = value2 WHERE condition;
-```
+
 ### 3. DELETE
 Used to delete records from a relation.
-**Syntax (All rows):**
-```sql
-DELETE FROM table_name;
-```
-**Syntax (Specific condition):**
-```sql
-DELETE FROM table_name WHERE condition;
-```
+
 ### 4. SELECT
 Used to retrieve records from a table.
-**Syntax:**
-```sql
-SELECT column1, column2 FROM table_name WHERE condition;
-```
-**Question 1**
---
--- Paste Question 1 here
+
+## Question 1
+
+![Question 1 and program](images/Q1_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 1
-```
-
-**Output:**
-
-![Output1](output.png)
-
-**Question 2**
----
--- Paste Question 2 here
-
-```sql
--- Paste your SQL code below for Question 2
+UPDATE Customer
+SET grade=5
+WHERE city='Chennai';
 ```
 
 **Output:**
 
-![Output2](output.png)
+![Output 1](images/Q1_output.png)
 
-**Question 3**
----
--- Paste Question 3 here
+## Question 2
+
+![Question 2 and program](images/Q2_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 3
+UPDATE suppliers
+SET supplier_name = 'A1 Suppliers'
+WHERE supplier_id = 8;
 ```
 
 **Output:**
 
-![Output3](output.png)
+![Output 2](images/Q2_output.png)
 
-**Question 4**
----
--- Paste Question 4 here
+## Question 3
+
+![Question 3 and program](images/Q3_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 4
+UPDATE products
+SET sell_price=sell_price*1.10
+WHERE category = 'Bakery';
 ```
 
 **Output:**
 
-![Output4](output.png)
+![Output 3](images/Q3_output.png)
 
-**Question 5**
----
--- Paste Question 5 here
+## Question 4
+
+![Question 4 and program](images/Q4_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 5
+UPDATE Employees
+SET email='Unavailable'
 ```
 
 **Output:**
 
-![Output5](output.png)
+![Output 4](images/Q4_output.png)
 
-**Question 6**
----
--- Paste Question 6 here
+## Question 5
+
+![Question 5 and program](images/Q5_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 6
+UPDATE products
+SET quantity =quantity*1.10;
 ```
 
 **Output:**
 
-![Output6](output.png)
+![Output 5](images/Q5_output.png)
 
-**Question 7**
----
--- Paste Question 7 here
+## Question 6
+
+![Question 6 and program](images/Q6_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 7
+DELETE FROM Customer
+WHERE CUST_CITY != 'New York'
+AND OUTSTANDING_AMT > 5000;
 ```
 
 **Output:**
 
-![Output7](output.png)
+![Output 6](images/Q6_output.png)
 
-**Question 8**
----
--- Paste Question 8 here
+## Question 7
+
+![Question 7 and program](images/Q7_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 8
+DELETE FROM Customer
+WHERE AGENT_CODE = 'A003' OR
+AGENT_CODE = 'A008';
 ```
 
 **Output:**
 
-![Output8](output.png)
+![Output 7](images/Q7_output.png)
 
-**Question 9**
----
--- Paste Question 9 here
+## Question 8
+
+![Question 8 and program](images/Q8_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 9
+DELETE FROM Doctors
+WHERE doctor_id>=2 AND doctor_id<=4;
 ```
 
 **Output:**
 
-![Output9](output.png)
+![Output 8](images/Q8_output.png)
 
-**Question 10**
----
--- Paste Question 10 here
+## Question 9
+
+![Question 9 and program](images/Q9_question_and_program.png)
+
+**Program:**
 
 ```sql
--- Paste your SQL code below for Question 10
+DELETE FROM Doctors
+WHERE specialization='Pediatrics' AND
+first_name = 'Michael';
 ```
 
 **Output:**
 
-![Output10](output.png)
+![Output 9](images/Q9_output.png)
+
+## Question 10
+
+![Question 10 and program](images/Q10_question_and_program.png)
+
+**Program:**
+
+```sql
+DELETE FROM Customer
+WHERE GRADE=2
+AND CUST_NAME LIKE '%M%'
+AND PAYMENT_AMT<3000;
+```
+
+**Output:**
+
+![Output 10](images/Q10_output.png)
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
